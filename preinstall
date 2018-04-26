@@ -6,3 +6,5 @@ do
   echo "Killing PID: $pid";
   kill -9 $pid;
 done
+# Delete cron created by appd module 
+rm -rf /etc/cron.d/machineagent.cron &> /dev/null
