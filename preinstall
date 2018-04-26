@@ -1,1 +1,8 @@
+# Clean prev installation
 rm -rf /opt/appdynamics/  &> /dev/null
+# kill old machineagents
+for pid in `/usr/bin/jps |  awk '/machineagent.jar/ {print $1}'`
+do
+  echo "Killing PID: $pid";
+  kill -9 $pid;
+done
